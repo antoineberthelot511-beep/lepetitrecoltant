@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Petit Récoltant — Champagne de la Marne</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --vert: #1D9E75;
+    --vert-dark: #0F6E56;
+    --encre: #1a1a18;
+    --craie: #F5F3EC;
+    --or: #C8921A;
+    --gris: #6b6b67;
+    --border: rgba(26,26,24,0.1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--craie);
+    color: var(--encre);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem;
+    height: 64px;
+    background: rgba(245,243,236,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--encre);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 13px; font-weight: 400;
+    color: var(--gris); text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--encre); }
+  .nav-cta {
+    font-size: 13px; font-weight: 500;
+    background: var(--encre); color: var(--craie);
+    padding: 8px 20px; border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--vert-dark); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 2rem 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(29,158,117,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--vert);
+    border: 0.5px solid rgba(29,158,117,0.3);
+    padding: 6px 16px; border-radius: 100px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-tag::before {
+    content: ''; width: 6px; height: 6px;
+    border-radius: 50%; background: var(--vert);
+    animation: pulse 2s ease infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: var(--encre);
+    max-width: 900px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--vert);
+  }
+  .hero-sub {
+    font-size: 18px; font-weight: 300;
+    color: var(--gris); line-height: 1.6;
+    max-width: 520px; margin: 1.5rem auto 0;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-actions {
+    display: flex; gap: 12px; margin-top: 2.5rem;
+    animation: fadeUp 0.6s 0.3s ease both;
+    flex-wrap: wrap; justify-content: center;
+  }
+  .btn-primary {
+    background: var(--encre); color: var(--craie);
+    padding: 14px 28px; border-radius: 100px;
+    font-size: 15px; font-weight: 500;
+    text-decoration: none; transition: all 0.2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--vert-dark); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: var(--encre);
+    padding: 14px 28px; border-radius: 100px;
+    font-size: 15px; font-weight: 400;
+    text-decoration: none; transition: all 0.2s;
+    border: 0.5px solid var(--border);
+  }
+  .btn-secondary:hover { background: rgba(26,26,24,0.05); }
+
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--gris); font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+  .scroll-line {
+    width: 0.5px; height: 40px; background: var(--gris);
+    animation: scrollDown 1.5s ease infinite;
+  }
+  @keyframes scrollDown { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+  /* STATS */
+  .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .stat {
+    padding: 2.5rem 2rem;
+    border-right: 0.5px solid var(--border);
+    text-align: center;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem; color: var(--vert);
+    line-height: 1;
+  }
+  .stat-label { font-size: 13px; color: var(--gris); margin-top: 6px; font-weight: 300; }
+
+  /* SECTION */
+  section { padding: 6rem 3rem; }
+  .section-tag {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--or);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.1; letter-spacing: -0.02em;
+    max-width: 600px; margin-bottom: 1.5rem;
+  }
+  .section-sub {
+    font-size: 16px; font-weight: 300;
+    color: var(--gris); line-height: 1.7;
+    max-width: 480px;
+  }
+
+  /* COMMENT CA MARCHE */
+  .how { background: var(--encre); color: var(--craie); }
+  .how .section-title { color: var(--craie); }
+  .how .section-sub { color: rgba(245,243,236,0.6); }
+  .how-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; margin-top: 4rem;
+    background: rgba(245,243,236,0.08);
+    border: 0.5px solid rgba(245,243,236,0.1);
+    border-radius: 16px; overflow: hidden;
+  }
+  .how-step {
+    padding: 2.5rem 2rem;
+    background: var(--encre);
+    border-right: 0.5px solid rgba(245,243,236,0.08);
+  }
+  .how-step:last-child { border-right: none; }
+  .step-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem; color: var(--vert);
+    line-height: 1; margin-bottom: 1rem;
+  }
+  .step-title {
+    font-size: 16px; font-weight: 500;
+    color: var(--craie); margin-bottom: 8px;
+  }
+  .step-desc { font-size: 14px; color: rgba(245,243,236,0.5); line-height: 1.6; font-weight: 300; }
+
+  /* VIGNERONS */
+  .vignerons-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px; margin-top: 3rem;
+  }
+  .vigneron-card {
+    background: white;
+    border: 0.5px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .vigneron-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(26,26,24,0.08); }
+  .card-img {
+    height: 160px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 4rem; letter-spacing: -0.05em;
+  }
+  .card-img.green { background: #E1F5EE; color: #1D9E75; }
+  .card-img.amber { background: #FAEEDA; color: #C8921A; }
+  .card-img.gray { background: #F1EFE8; color: #888780; }
+  .card-body { padding: 1.25rem; }
+  .card-village {
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gris); margin-bottom: 4px;
+  }
+  .card-name { font-size: 17px; font-weight: 500; color: var(--encre); margin-bottom: 6px; }
+  .card-desc { font-size: 13px; color: var(--gris); line-height: 1.5; font-weight: 300; }
+  .card-tags { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+  .card-tag {
+    font-size: 10px; padding: 3px 10px; border-radius: 100px;
+    background: var(--craie); color: var(--gris);
+    border: 0.5px solid var(--border);
+  }
+
+  /* SOMMELIER IA */
+  .ia-section {
+    background: linear-gradient(135deg, #0a2e22 0%, #1a1a18 100%);
+    color: var(--craie); text-align: center;
+  }
+  .ia-section .section-title { color: var(--craie); max-width: 700px; margin: 0 auto 1rem; }
+  .ia-section .section-sub { color: rgba(245,243,236,0.6); max-width: 500px; margin: 0 auto 2.5rem; }
+  .ia-card {
+    background: rgba(245,243,236,0.05);
+    border: 0.5px solid rgba(245,243,236,0.1);
+    border-radius: 20px; padding: 2.5rem;
+    max-width: 500px; margin: 0 auto;
+    text-align: left;
+  }
+  .ia-question { font-size: 18px; font-weight: 500; color: var(--craie); margin-bottom: 1.5rem; }
+  .ia-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.5rem; }
+  .ia-opt {
+    background: rgba(245,243,236,0.05);
+    border: 0.5px solid rgba(245,243,236,0.15);
+    border-radius: 12px; padding: 12px 14px;
+    cursor: pointer; font-size: 13px; color: rgba(245,243,236,0.8);
+    transition: all 0.15s; text-align: left;
+  }
+  .ia-opt:hover, .ia-opt.active { border-color: var(--vert); color: var(--craie); background: rgba(29,158,117,0.1); }
+  .ia-btn {
+    width: 100%; padding: 14px;
+    background: var(--vert); color: white;
+    border: none; border-radius: 100px;
+    font-size: 15px; font-weight: 500; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .ia-btn:hover { background: var(--vert-dark); }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 3rem; display: flex;
+    justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px; color: var(--encre);
+  }
+  .footer-copy { font-size: 12px; color: var(--gris); }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+  .footer-links a { font-size: 12px; color: var(--gris); text-decoration: none; }
+  .footer-links a:hover { color: var(--encre); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .stats { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 0.5px solid var(--border); }
+    .how-grid { grid-template-columns: 1fr; }
+    .how-step { border-right: none; border-bottom: 0.5px solid rgba(245,243,236,0.08); }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Le Petit Récoltant</a>
+  <ul class="nav-links">
+    <li><a href="#comment">Comment ça marche</a></li>
+    <li><a href="#vignerons">Vignerons</a></li>
+    <li><a href="#sommelier">Sommelier IA</a></li>
+  </ul>
+  <a class="nav-cta" href="#sommelier">Trouver mon champagne</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Marne · 51 · Depuis 2025</div>
+  <h1>Le champagne<br>des <em>vrais</em> vignerons</h1>
+  <p class="hero-sub">Découvrez les récoltants-manipulants indépendants de la Marne. Pas les grandes maisons — les artisans qui font tout à la main.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#sommelier">Trouver mon champagne</a>
+    <a class="btn-secondary" href="#vignerons">Voir les vignerons</a>
+  </div>
+  <div class="hero-scroll">
+    <span>Découvrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-number">47</div>
+    <div class="stat-label">Vignerons référencés</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">12</div>
+    <div class="stat-label">Villages de la Marne</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">IA</div>
+    <div class="stat-label">Recommandations personnalisées</div>
+  </div>
+</div>
+
+<!-- COMMENT CA MARCHE -->
+<section class="how" id="comment">
+  <div class="section-tag">Comment ça marche</div>
+  <h2 class="section-title">Simple comme une flûte de champagne</h2>
+  <p class="section-sub">Notre sommelier IA te pose 5 questions et te trouve le vigneron parfait en quelques secondes.</p>
+  <div class="how-grid">
+    <div class="how-step">
+      <div class="step-num">1</div>
+      <div class="step-title">Tu réponds à 5 questions</div>
+      <div class="step-desc">Occasion, budget, goût, niveau, et style de producteur. Ça prend 30 secondes.</div>
+    </div>
+    <div class="how-step">
+      <div class="step-num">2</div>
+      <div class="step-title">L'IA analyse ton profil</div>
+      <div class="step-desc">Notre algorithme parcourt tous les vignerons indépendants de la Marne pour trouver le meilleur match.</div>
+    </div>
+    <div class="how-step">
+      <div class="step-num">3</div>
+      <div class="step-title">Tu découvres ton vigneron</div>
+      <div class="step-desc">Nom, village, cuvée recommandée, et pourquoi c'est parfait pour toi. Prêt à commander ou visiter.</div>
+    </div>
+  </div>
+</section>
+
+<!-- VIGNERONS -->
+<section id="vignerons" style="background:white;">
+  <div class="section-tag">Nos vignerons</div>
+  <h2 class="section-title">Des artisans, pas des marques</h2>
+  <p class="section-sub">Chaque vigneron que tu trouves ici travaille ses propres vignes dans la Marne depuis des générations.</p>
+  <div class="vignerons-grid">
+    <div class="vigneron-card">
+      <div class="card-img green">VB</div>
+      <div class="card-body">
+        <div class="card-village">Aÿ-Champagne</div>
+        <div class="card-name">Vigneron Bertrand</div>
+        <div class="card-desc">Récoltant familial depuis 1962. Spécialiste du Pinot Noir de la Montagne de Reims.</div>
+        <div class="card-tags">
+          <span class="card-tag">Bio</span>
+          <span class="card-tag">3 générations</span>
+          <span class="card-tag">Visites</span>
+        </div>
+      </div>
+    </div>
+    <div class="vigneron-card">
+      <div class="card-img amber">MC</div>
+      <div class="card-body">
+        <div class="card-village">Épernay</div>
+        <div class="card-name">Maison Clément</div>
+        <div class="card-desc">Artisan innovant qui vinifie parcelle par parcelle. Cuvées en édition limitée très recherchées.</div>
+        <div class="card-tags">
+          <span class="card-tag">Parcellaire</span>
+          <span class="card-tag">Éditions limitées</span>
+        </div>
+      </div>
+    </div>
+    <div class="vigneron-card">
+      <div class="card-img gray">DR</div>
+      <div class="card-body">
+        <div class="card-village">Vertus</div>
+        <div class="card-name">Domaine Rouzaud</div>
+        <div class="card-desc">Spécialiste du Blanc de Blancs sur les craies de la Côte des Blancs. Élégance naturelle.</div>
+        <div class="card-tags">
+          <span class="card-tag">Blanc de Blancs</span>
+          <span class="card-tag">Tradition</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOMMELIER IA -->
+<section class="ia-section" id="sommelier">
+  <div class="section-tag" style="color:var(--vert);">Sommelier IA</div>
+  <h2 class="section-title">Trouve ton champagne idéal</h2>
+  <p class="section-sub">Réponds à ces questions et notre IA te recommande le vigneron parfait parmi tous les indépendants de la Marne.</p>
+  <div class="ia-card">
+    <div class="ia-question">Pour quelle occasion ?</div>
+    <div class="ia-options">
+      <button class="ia-opt" onclick="toggleOpt(this)">Anniversaire</button>
+      <button class="ia-opt" onclick="toggleOpt(this)">Repas gastronomique</button>
+      <button class="ia-opt" onclick="toggleOpt(this)">Cadeau</button>
+      <button class="ia-opt" onclick="toggleOpt(this)">Apéritif</button>
+    </div>
+    <button class="ia-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Continuer →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Le Petit Récoltant</div>
+  <p class="footer-copy">© 2025 Le Petit Récoltant · Marne, France</p>
+  <ul class="footer-links">
+    <li><a href="#">À propos</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Devenir partenaire</a></li>
+  </ul>
+</footer>
+
+<script>
+function toggleOpt(el) {
+  document.querySelectorAll('.ia-opt').forEach(o => o.classList.remove('active'));
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>

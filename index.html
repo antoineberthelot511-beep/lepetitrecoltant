@@ -7,15 +7,9 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --vert:#1D9E75;--vert-dark:#0F6E56;--encre:#1a1a18;
-  --craie:#F5F3EC;--or:#C8921A;--gris:#6b6b67;
-  --border:rgba(26,26,24,0.1);
-}
+:root{--vert:#1D9E75;--vert-dark:#0F6E56;--encre:#1a1a18;--craie:#F5F3EC;--or:#C8921A;--gris:#6b6b67;--border:rgba(26,26,24,0.1)}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--craie);color:var(--encre);overflow-x:hidden}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;background:rgba(245,243,236,0.88);backdrop-filter:blur(14px);border-bottom:0.5px solid var(--border)}
 .nav-logo{font-family:'DM Serif Display',serif;font-size:18px;color:var(--encre);text-decoration:none}
 .nav-links{display:flex;gap:2rem;list-style:none}
@@ -23,8 +17,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a:hover{color:var(--encre)}
 .nav-cta{font-size:13px;font-weight:500;background:var(--encre);color:var(--craie);padding:8px 20px;border-radius:100px;text-decoration:none;transition:background .2s}
 .nav-cta:hover{background:var(--vert-dark)}
-
-/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 2rem 80px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 60%,rgba(29,158,117,0.08) 0%,transparent 70%);pointer-events:none}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--vert);border:0.5px solid rgba(29,158,117,0.3);padding:6px 16px;border-radius:100px;margin-bottom:2rem;animation:fadeUp .6s ease both}
@@ -42,21 +34,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .scroll-line{width:.5px;height:40px;background:var(--gris);animation:scrollDown 1.5s ease infinite}
 @keyframes scrollDown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-/* STATS */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
 .stat{padding:2.5rem 2rem;border-right:.5px solid var(--border);text-align:center}
 .stat:last-child{border-right:none}
 .stat-number{font-family:'DM Serif Display',serif;font-size:3rem;color:var(--vert);line-height:1}
 .stat-label{font-size:13px;color:var(--gris);margin-top:6px;font-weight:300}
-
-/* SECTIONS */
 section{padding:6rem 3rem}
 .section-tag{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--or);margin-bottom:1rem}
 .section-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1.1;letter-spacing:-.02em;max-width:600px;margin-bottom:1.5rem}
 .section-sub{font-size:16px;font-weight:300;color:var(--gris);line-height:1.7;max-width:480px}
-
-/* COMMENT CA MARCHE */
 .how{background:var(--encre);color:var(--craie)}
 .how .section-title{color:var(--craie)}
 .how .section-sub{color:rgba(245,243,236,.6)}
@@ -66,12 +52,10 @@ section{padding:6rem 3rem}
 .step-num{font-family:'DM Serif Display',serif;font-size:3rem;color:var(--vert);line-height:1;margin-bottom:1rem}
 .step-title{font-size:16px;font-weight:500;color:var(--craie);margin-bottom:8px}
 .step-desc{font-size:14px;color:rgba(245,243,236,.5);line-height:1.6;font-weight:300}
-
-/* VIGNERONS */
 .vignerons-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:3rem}
-.vigneron-card{background:white;border:.5px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:pointer}
+.vigneron-card{background:white;border:.5px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .2s,box-shadow .2s}
 .vigneron-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(26,26,24,.08)}
-.card-img{height:140px;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:3.5rem;letter-spacing:-.05em}
+.card-img{height:140px;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:3.5rem}
 .card-img.green{background:#E1F5EE;color:#1D9E75}
 .card-img.amber{background:#FAEEDA;color:#C8921A}
 .card-img.gray{background:#F1EFE8;color:#888780}
@@ -81,16 +65,12 @@ section{padding:6rem 3rem}
 .card-desc{font-size:13px;color:var(--gris);line-height:1.5;font-weight:300}
 .card-tags{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
 .card-tag{font-size:10px;padding:3px 10px;border-radius:100px;background:var(--craie);color:var(--gris);border:.5px solid var(--border)}
-
-/* SOMMELIER IA */
 .ia-section{background:linear-gradient(135deg,#0a2e22 0%,#1a1a18 100%);color:var(--craie)}
 .ia-section .section-tag{color:var(--vert)}
 .ia-section .section-title{color:var(--craie);max-width:700px}
 .ia-section .section-sub{color:rgba(245,243,236,.6);max-width:500px;margin-bottom:3rem}
-
-/* QUIZ */
 .quiz-wrap{max-width:520px;margin:0 auto}
-.quiz-card{background:rgba(245,243,236,.05);border:.5px solid rgba(245,243,236,.12);border-radius:20px;padding:2.5rem;position:relative;overflow:hidden}
+.quiz-card{background:rgba(245,243,236,.05);border:.5px solid rgba(245,243,236,.12);border-radius:20px;padding:2.5rem}
 .quiz-progress{display:flex;gap:6px;margin-bottom:2rem}
 .quiz-dot{height:3px;flex:1;border-radius:2px;background:rgba(245,243,236,.15);transition:background .3s}
 .quiz-dot.done{background:var(--vert)}
@@ -100,21 +80,16 @@ section{padding:6rem 3rem}
 .quiz-opt{background:rgba(245,243,236,.05);border:.5px solid rgba(245,243,236,.15);border-radius:12px;padding:13px 14px;cursor:pointer;font-size:13px;color:rgba(245,243,236,.8);transition:all .15s;text-align:left;font-family:'DM Sans',sans-serif;line-height:1.4}
 .quiz-opt:hover{border-color:var(--vert);color:var(--craie);background:rgba(29,158,117,.1)}
 .quiz-opt.selected{border-color:var(--vert);color:var(--craie);background:rgba(29,158,117,.15)}
-.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:.5rem}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center}
 .quiz-back{background:transparent;border:.5px solid rgba(245,243,236,.2);border-radius:100px;padding:10px 20px;font-size:13px;color:rgba(245,243,236,.6);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
 .quiz-back:hover{border-color:rgba(245,243,236,.4);color:var(--craie)}
 .quiz-next{background:var(--vert);color:white;border:none;border-radius:100px;padding:10px 24px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s}
 .quiz-next:hover{background:var(--vert-dark)}
 .quiz-next:disabled{opacity:.35;cursor:not-allowed;background:rgba(245,243,236,.2);color:rgba(245,243,236,.4)}
-
-/* LOADING */
-.quiz-loading{text-align:center;padding:3rem 0}
+.loading-wrap{text-align:center;padding:3rem 0}
 .spinner{width:36px;height:36px;border:2px solid rgba(245,243,236,.15);border-top-color:var(--vert);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 1.5rem}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-text{font-size:15px;color:rgba(245,243,236,.6)}
-
-/* RESULT */
-.quiz-result{}
 .result-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--vert);margin-bottom:1rem}
 .result-domaine{font-family:'DM Serif Display',serif;font-size:26px;color:var(--craie);margin-bottom:4px;line-height:1.2}
 .result-lieu{font-size:13px;color:rgba(245,243,236,.5);margin-bottom:1.25rem}
@@ -126,23 +101,17 @@ section{padding:6rem 3rem}
 .result-conseil{font-size:13px;color:rgba(245,243,236,.45);font-style:italic;line-height:1.6}
 .result-restart{margin-top:1.5rem;width:100%;padding:12px;background:transparent;border:.5px solid rgba(245,243,236,.2);border-radius:100px;font-size:14px;color:rgba(245,243,236,.7);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
 .result-restart:hover{border-color:rgba(245,243,236,.4);color:var(--craie)}
-
-/* FOOTER */
 footer{border-top:.5px solid var(--border);padding:3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .footer-logo{font-family:'DM Serif Display',serif;font-size:20px;color:var(--encre)}
 .footer-copy{font-size:12px;color:var(--gris)}
 .footer-links{display:flex;gap:1.5rem;list-style:none}
 .footer-links a{font-size:12px;color:var(--gris);text-decoration:none}
 .footer-links a:hover{color:var(--encre)}
-
 @media(max-width:768px){
-  nav{padding:0 1.5rem}
-  .nav-links{display:none}
+  nav{padding:0 1.5rem}.nav-links{display:none}
   section{padding:4rem 1.5rem}
-  .stats{grid-template-columns:1fr}
-  .stat{border-right:none;border-bottom:.5px solid var(--border)}
-  .how-grid{grid-template-columns:1fr}
-  .how-step{border-right:none;border-bottom:.5px solid rgba(245,243,236,.08)}
+  .stats{grid-template-columns:1fr}.stat{border-right:none;border-bottom:.5px solid var(--border)}
+  .how-grid{grid-template-columns:1fr}.how-step{border-right:none;border-bottom:.5px solid rgba(245,243,236,.08)}
   .quiz-options{grid-template-columns:1fr}
   footer{flex-direction:column;text-align:center;padding:2rem 1.5rem}
 }
@@ -155,7 +124,7 @@ footer{border-top:.5px solid var(--border);padding:3rem;display:flex;justify-con
   <ul class="nav-links">
     <li><a href="#comment">Comment ça marche</a></li>
     <li><a href="#vignerons">Vignerons</a></li>
-    <li><a href="#sommelier">Sommelier IA</a></li>
+    <li><a href="#sommelier">Sommelier</a></li>
   </ul>
   <a class="nav-cta" href="#sommelier">Trouver mon champagne</a>
 </nav>
@@ -168,25 +137,22 @@ footer{border-top:.5px solid var(--border);padding:3rem;display:flex;justify-con
     <a class="btn-primary" href="#sommelier">Trouver mon champagne</a>
     <a class="btn-secondary" href="#vignerons">Voir les vignerons</a>
   </div>
-  <div class="hero-scroll">
-    <span>Découvrir</span>
-    <div class="scroll-line"></div>
-  </div>
+  <div class="hero-scroll"><span>Découvrir</span><div class="scroll-line"></div></div>
 </section>
 
 <div class="stats">
   <div class="stat"><div class="stat-number">47</div><div class="stat-label">Vignerons référencés</div></div>
   <div class="stat"><div class="stat-number">12</div><div class="stat-label">Villages de la Marne</div></div>
-  <div class="stat"><div class="stat-number">IA</div><div class="stat-label">Recommandations personnalisées</div></div>
+  <div class="stat"><div class="stat-number">∞</div><div class="stat-label">Combinaisons possibles</div></div>
 </div>
 
 <section class="how" id="comment">
   <div class="section-tag">Comment ça marche</div>
   <h2 class="section-title">Simple comme une flûte de champagne</h2>
-  <p class="section-sub">Notre sommelier IA te pose 5 questions et te trouve le vigneron parfait en quelques secondes.</p>
+  <p class="section-sub">Notre sommelier te pose 5 questions et trouve le vigneron parfait en quelques secondes.</p>
   <div class="how-grid">
-    <div class="how-step"><div class="step-num">1</div><div class="step-title">Tu réponds à 5 questions</div><div class="step-desc">Occasion, budget, goût, niveau, et style de producteur. Ça prend 30 secondes.</div></div>
-    <div class="how-step"><div class="step-num">2</div><div class="step-title">L'IA analyse ton profil</div><div class="step-desc">Notre algorithme parcourt tous les vignerons indépendants de la Marne pour trouver le meilleur match.</div></div>
+    <div class="how-step"><div class="step-num">1</div><div class="step-title">Tu réponds à 5 questions</div><div class="step-desc">Occasion, budget, goût, niveau, style de producteur. 30 secondes.</div></div>
+    <div class="how-step"><div class="step-num">2</div><div class="step-title">On analyse ton profil</div><div class="step-desc">L'algorithme parcourt tous les vignerons indépendants de la Marne pour trouver le meilleur match.</div></div>
     <div class="how-step"><div class="step-num">3</div><div class="step-title">Tu découvres ton vigneron</div><div class="step-desc">Nom, village, cuvée recommandée, et pourquoi c'est parfait pour toi.</div></div>
   </div>
 </section>
@@ -197,118 +163,27 @@ footer{border-top:.5px solid var(--border);padding:3rem;display:flex;justify-con
   <p class="section-sub">Chaque vigneron que tu trouves ici travaille ses propres vignes dans la Marne depuis des générations.</p>
   <div class="vignerons-grid">
     <div class="vigneron-card">
-      <div class="card-img green">VB</div>
-      <div class="card-body">
-        <div class="card-village">Aÿ-Champagne</div>
-        <div class="card-name">Vigneron Bertrand</div>
-        <div class="card-desc">Récoltant familial depuis 1962. Spécialiste du Pinot Noir de la Montagne de Reims.</div>
-        <div class="card-tags"><span class="card-tag">Bio</span><span class="card-tag">3 générations</span><span class="card-tag">Visites</span></div>
-      </div>
+      <div class="card-img green">BL</div>
+      <div class="card-body"><div class="card-village">Aÿ-Champagne</div><div class="card-name">Benoît Lahaye</div><div class="card-desc">Récoltant bio engagé. Vinification naturelle, zéro soufre. Une référence de la Montagne de Reims.</div><div class="card-tags"><span class="card-tag">Bio</span><span class="card-tag">Nature</span><span class="card-tag">Pinot Noir</span></div></div>
     </div>
     <div class="vigneron-card">
-      <div class="card-img amber">MC</div>
-      <div class="card-body">
-        <div class="card-village">Épernay</div>
-        <div class="card-name">Maison Clément</div>
-        <div class="card-desc">Artisan innovant qui vinifie parcelle par parcelle. Cuvées en édition limitée très recherchées.</div>
-        <div class="card-tags"><span class="card-tag">Parcellaire</span><span class="card-tag">Éditions limitées</span></div>
-      </div>
+      <div class="card-img amber">JM</div>
+      <div class="card-body"><div class="card-village">Cumières</div><div class="card-name">José Michel</div><div class="card-desc">Domaine familial depuis 1847. Spécialiste du Meunier, cépage souvent oublié des grandes maisons.</div><div class="card-tags"><span class="card-tag">Tradition</span><span class="card-tag">Meunier</span><span class="card-tag">5 générations</span></div></div>
     </div>
     <div class="vigneron-card">
-      <div class="card-img gray">DR</div>
-      <div class="card-body">
-        <div class="card-village">Vertus</div>
-        <div class="card-name">Domaine Rouzaud</div>
-        <div class="card-desc">Spécialiste du Blanc de Blancs sur les craies de la Côte des Blancs.</div>
-        <div class="card-tags"><span class="card-tag">Blanc de Blancs</span><span class="card-tag">Tradition</span></div>
-      </div>
+      <div class="card-img gray">PP</div>
+      <div class="card-body"><div class="card-village">Le Mesnil-sur-Oger</div><div class="card-name">Pierre Péters</div><div class="card-desc">La référence du Blanc de Blancs sur la Côte des Blancs. Chardonnay d'une pureté et d'une minéralité exceptionnelles.</div><div class="card-tags"><span class="card-tag">Blanc de Blancs</span><span class="card-tag">Grand Cru</span><span class="card-tag">Minéral</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- SOMMELIER IA -->
 <section class="ia-section" id="sommelier">
-  <div class="section-tag">Sommelier IA</div>
+  <div class="section-tag">Sommelier</div>
   <h2 class="section-title">Trouve ton champagne idéal</h2>
-  <p class="section-sub">5 questions, 30 secondes. Notre IA te recommande le vigneron parfait parmi tous les indépendants de la Marne.</p>
-
+  <p class="section-sub">5 questions, 30 secondes. On te recommande le vigneron parfait parmi tous les indépendants de la Marne.</p>
   <div class="quiz-wrap">
-    <div class="quiz-card" id="quiz-card">
-
-      <!-- ÉTAPE 0 -->
-      <div class="quiz-step" id="step-0">
-        <div class="quiz-progress" id="prog-0"></div>
-        <div class="quiz-question">Pour quelle occasion ?</div>
-        <div class="quiz-options">
-          <button class="quiz-opt" onclick="pick(0,this,'anniversaire')">Anniversaire</button>
-          <button class="quiz-opt" onclick="pick(0,this,'repas gastronomique')">Repas gastronomique</button>
-          <button class="quiz-opt" onclick="pick(0,this,'cadeau')">Cadeau</button>
-          <button class="quiz-opt" onclick="pick(0,this,'apéritif entre amis')">Apéritif</button>
-        </div>
-        <div class="quiz-nav"><span></span><button class="quiz-next" id="next-0" disabled onclick="goNext(0)">Suivant →</button></div>
-      </div>
-
-      <!-- ÉTAPE 1 -->
-      <div class="quiz-step" id="step-1" style="display:none">
-        <div class="quiz-progress" id="prog-1"></div>
-        <div class="quiz-question">Quel budget par bouteille ?</div>
-        <div class="quiz-options">
-          <button class="quiz-opt" onclick="pick(1,this,'15 à 20€')">15 – 20 €</button>
-          <button class="quiz-opt" onclick="pick(1,this,'20 à 35€')">20 – 35 €</button>
-          <button class="quiz-opt" onclick="pick(1,this,'35 à 60€')">35 – 60 €</button>
-          <button class="quiz-opt" onclick="pick(1,this,'60€ et plus')">60 € et plus</button>
-        </div>
-        <div class="quiz-nav"><button class="quiz-back" onclick="goBack(1)">← Retour</button><button class="quiz-next" id="next-1" disabled onclick="goNext(1)">Suivant →</button></div>
-      </div>
-
-      <!-- ÉTAPE 2 -->
-      <div class="quiz-step" id="step-2" style="display:none">
-        <div class="quiz-progress" id="prog-2"></div>
-        <div class="quiz-question">Quel profil de goût ?</div>
-        <div class="quiz-options">
-          <button class="quiz-opt" onclick="pick(2,this,'frais et léger avec des notes d agrumes')">Frais et léger</button>
-          <button class="quiz-opt" onclick="pick(2,this,'fruité et gourmand pomme poire brioche')">Fruité et gourmand</button>
-          <button class="quiz-opt" onclick="pick(2,this,'complexe et minéral terroir affirmé')">Complexe et minéral</button>
-          <button class="quiz-opt" onclick="pick(2,this,'rosé élégant fruits rouges')">Rosé élégant</button>
-        </div>
-        <div class="quiz-nav"><button class="quiz-back" onclick="goBack(2)">← Retour</button><button class="quiz-next" id="next-2" disabled onclick="goNext(2)">Suivant →</button></div>
-      </div>
-
-      <!-- ÉTAPE 3 -->
-      <div class="quiz-step" id="step-3" style="display:none">
-        <div class="quiz-progress" id="prog-3"></div>
-        <div class="quiz-question">Tu connais déjà le champagne ?</div>
-        <div class="quiz-options">
-          <button class="quiz-opt" onclick="pick(3,this,'débutant je découvre')">Pas vraiment</button>
-          <button class="quiz-opt" onclick="pick(3,this,'amateur j en bois parfois')">Un peu</button>
-          <button class="quiz-opt" onclick="pick(3,this,'connaisseur je connais les producteurs')">Oui bien</button>
-          <button class="quiz-opt" onclick="pick(3,this,'expert je cherche des pépites rares')">Passionné</button>
-        </div>
-        <div class="quiz-nav"><button class="quiz-back" onclick="goBack(3)">← Retour</button><button class="quiz-next" id="next-3" disabled onclick="goNext(3)">Suivant →</button></div>
-      </div>
-
-      <!-- ÉTAPE 4 -->
-      <div class="quiz-step" id="step-4" style="display:none">
-        <div class="quiz-progress" id="prog-4"></div>
-        <div class="quiz-question">Style de producteur préféré ?</div>
-        <div class="quiz-options">
-          <button class="quiz-opt" onclick="pick(4,this,'tradition familiale plusieurs générations')">Tradition familiale</button>
-          <button class="quiz-opt" onclick="pick(4,this,'agriculture biologique engagé')">Agriculture biologique</button>
-          <button class="quiz-opt" onclick="pick(4,this,'artisan innovant nouvelles méthodes')">Artisan innovant</button>
-          <button class="quiz-opt" onclick="pick(4,this,'peu importe le meilleur pour mon profil')">Peu importe</button>
-        </div>
-        <div class="quiz-nav"><button class="quiz-back" onclick="goBack(4)">← Retour</button><button class="quiz-next" id="next-4" disabled onclick="submitQuiz()">Trouver mon champagne →</button></div>
-      </div>
-
-      <!-- LOADING -->
-      <div class="quiz-step quiz-loading" id="step-loading" style="display:none">
-        <div class="spinner"></div>
-        <div class="loading-text">Le sommelier analyse ton profil...</div>
-      </div>
-
-      <!-- RÉSULTAT -->
-      <div class="quiz-step quiz-result" id="step-result" style="display:none"></div>
-
+    <div class="quiz-card">
+      <div id="quiz"></div>
     </div>
   </div>
 </section>
@@ -324,115 +199,92 @@ footer{border-top:.5px solid var(--border);padding:3rem;display:flex;justify-con
 </footer>
 
 <script>
-const answers = {};
-const total = 5;
+const V = [
+  {nom:"Benoît Lahaye",domaine:"Domaine Benoît Lahaye",village:"Aÿ-Champagne",cuvee:"Naturellement… Blanc de Noirs",badges:["Bio","Nature","Zéro soufre"],gouts:["complexe","minéral"],styles:["bio"],niveaux:["connaisseur","expert"],budgets:["35-60","60+"],pourquoi:"Benoît Lahaye est l'un des vignerons nature les plus respectés de Champagne. Ses cuvées sans sulfites révèlent le vrai caractère du terroir d'Aÿ, avec une profondeur rare.",conseil:"Ses bouteilles se trouvent en caviste spécialisé — vaut vraiment le détour."},
+  {nom:"José Michel",domaine:"Domaine José Michel & Fils",village:"Cumières",cuvee:"Brut Tradition",badges:["Tradition","Meunier","5 générations"],gouts:["fruité","gourmand"],styles:["tradition"],niveaux:["débutant","amateur"],budgets:["15-20","20-35"],pourquoi:"Domaine familial de Cumières depuis 1847. Leur Brut Tradition à base de Meunier est accessible, fruité et parfait pour découvrir le champagne de vigneron sans se ruiner.",conseil:"Un des rares domaines à sublimer le Pinot Meunier, cépage trop souvent sous-estimé."},
+  {nom:"Pierre Péters",domaine:"Champagne Pierre Péters",village:"Le Mesnil-sur-Oger",cuvee:"Cuvée de Réserve Blanc de Blancs",badges:["Blanc de Blancs","Grand Cru","Minéral"],gouts:["frais","minéral","complexe"],styles:["tradition","artisan"],niveaux:["amateur","connaisseur","expert"],budgets:["35-60","60+"],pourquoi:"Pierre Péters est LA référence du Blanc de Blancs sur la Côte des Blancs. Chardonnay d'une pureté absolue, issu du Grand Cru du Mesnil-sur-Oger.",conseil:"La Cuvée Spéciale Les Chétillons est leur fleuron — à chercher absolument."},
+  {nom:"Françoise Bedel",domaine:"Champagne Françoise Bedel",village:"Crouttes-sur-Marne",cuvee:"Dis, Vin Secret",badges:["Biodynamie","Nature","Engagé"],gouts:["complexe","fruité"],styles:["bio"],niveaux:["connaisseur","expert"],budgets:["20-35","35-60"],pourquoi:"Françoise Bedel pratique la biodynamie depuis 1998. Ses champagnes ont une profondeur et une vie qu'on ne retrouve pas ailleurs, reflet d'un terroir travaillé avec passion.",conseil:"Les noms de ses cuvées sont poétiques — chaque bouteille raconte une histoire."},
+  {nom:"Alexandre Chartogne",domaine:"Champagne Chartogne-Taillet",village:"Merfy",cuvee:"Cuvée Sainte-Anne",badges:["Artisan","Terroir","Reconnu"],gouts:["frais","fruité","complexe"],styles:["artisan"],niveaux:["amateur","connaisseur"],budgets:["20-35","35-60"],pourquoi:"Alexandre Chartogne est une star montante du champagne indépendant. Sa Cuvée Sainte-Anne est un équilibre parfait entre fraîcheur et complexité — idéal pour un cadeau remarqué.",conseil:"Son domaine est à Merfy, village peu connu mais au terroir exceptionnel à découvrir."},
+  {nom:"Lelarge-Pugeot",domaine:"Champagne Lelarge-Pugeot",village:"Vrigny",cuvee:"Tradition Extra-Brut",badges:["Bio","Famille","Vrigny"],gouts:["frais","minéral"],styles:["bio","tradition"],niveaux:["débutant","amateur"],budgets:["15-20","20-35"],pourquoi:"Petit domaine familial en agriculture biologique. Leurs champagnes sont nets, frais et honnêtes — le rapport qualité-prix est imbattable pour débuter avec un vrai vigneron.",conseil:"Vrigny est un village méconnu de la Montagne de Reims, mais la qualité des terroirs y est réelle."},
+  {nom:"Marie Courtin",domaine:"Champagne Marie Courtin",village:"Polisot",cuvee:"Efflorescence",badges:["Nature","Femme vigneron","Rare"],gouts:["complexe","minéral","rosé"],styles:["bio","artisan"],niveaux:["connaisseur","expert"],budgets:["35-60","60+"],pourquoi:"Marie Courtin est l'une des vigneronnes les plus talentueuses de Champagne. Ses cuvées nature sont des œuvres d'art, recherchées par les amateurs du monde entier.",conseil:"Difficiles à trouver tellement elles partent vite — contacte directement le domaine."},
+  {nom:"Serge Mathieu",domaine:"Champagne Serge Mathieu",village:"Avirey-Lingey",cuvee:"Brut Sélection",badges:["Tradition","Pinot Noir","Accessible"],gouts:["fruité","gourmand"],styles:["tradition"],niveaux:["débutant","amateur"],budgets:["15-20","20-35"],pourquoi:"Domaine familial classique avec des champagnes ronds et généreux à base de Pinot Noir. Parfait pour un apéritif ou un anniversaire sans se ruiner.",conseil:"Une valeur sûre pour offrir — la bouteille fait son effet sans vider le portefeuille."}
+];
 
-function renderProgress(stepEl, current) {
-  stepEl.innerHTML = '';
-  for (let i = 0; i < total; i++) {
-    const d = document.createElement('div');
-    d.className = 'quiz-dot' + (i < current ? ' done' : i === current ? ' active' : '');
-    stepEl.appendChild(d);
-  }
+const Q = [
+  {q:"Pour quelle occasion ?",opts:[["Anniversaire","anniversaire"],["Repas gastronomique","repas"],["Cadeau","cadeau"],["Apéritif entre amis","apéritif"]]},
+  {q:"Quel budget par bouteille ?",opts:[["15 – 20 €","15-20"],["20 – 35 €","20-35"],["35 – 60 €","35-60"],["60 € et plus","60+"]]},
+  {q:"Quel profil de goût ?",opts:[["Frais et léger","frais"],["Fruité et gourmand","fruité"],["Complexe et minéral","complexe"],["Rosé élégant","rosé"]]},
+  {q:"Tu connais déjà le champagne ?",opts:[["Pas vraiment","débutant"],["Un peu","amateur"],["Oui bien","connaisseur"],["Passionné","expert"]]},
+  {q:"Style de producteur préféré ?",opts:[["Tradition familiale","tradition"],["Agriculture biologique","bio"],["Artisan innovant","artisan"],["Peu importe","tous"]]}
+];
+
+const ans = {};
+let step = 0;
+
+function prog(s){
+  let h='';
+  for(let i=0;i<Q.length;i++) h+=`<div class="quiz-dot${i<s?' done':i===s?' active':''}"></div>`;
+  return h;
 }
 
-for (let i = 0; i < total; i++) {
-  const el = document.getElementById('prog-' + i);
-  if (el) renderProgress(el, i);
+function render(s){
+  const q=Q[s], last=s===Q.length-1;
+  document.getElementById('quiz').innerHTML=`
+    <div class="quiz-progress">${prog(s)}</div>
+    <div class="quiz-question">${q.q}</div>
+    <div class="quiz-options">${q.opts.map(([l,v])=>`<button class="quiz-opt${ans[s]===v?' selected':''}" onclick="pick(${s},'${v}',this)">${l}</button>`).join('')}</div>
+    <div class="quiz-nav">
+      ${s>0?`<button class="quiz-back" onclick="goTo(${s-1})">← Retour</button>`:'<span></span>'}
+      <button class="quiz-next" id="qn" ${ans[s]?'':'disabled'} onclick="${last?'submit()':'goTo('+(s+1)+')'}">${last?'Trouver mon champagne →':'Suivant →'}</button>
+    </div>`;
 }
 
-function pick(step, el, val) {
-  answers[step] = val;
-  document.querySelectorAll('#step-' + step + ' .quiz-opt').forEach(o => o.classList.remove('selected'));
+function pick(s,v,el){
+  ans[s]=v;
+  document.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('selected'));
   el.classList.add('selected');
-  const nb = document.getElementById('next-' + step);
-  if (nb) nb.disabled = false;
+  const n=document.getElementById('qn');
+  if(n) n.disabled=false;
 }
 
-function show(id) {
-  document.querySelectorAll('.quiz-step').forEach(s => s.style.display = 'none');
-  document.getElementById(id).style.display = 'block';
+function goTo(s){step=s;render(s);}
+
+function recommend(){
+  const budget=ans[1],gout=ans[2],niveau=ans[3],style=ans[4];
+  return V.map(v=>{
+    let sc=0;
+    if(v.budgets.includes(budget)) sc+=3;
+    if(v.gouts.some(g=>g===gout||gout===g)) sc+=3;
+    if(v.niveaux.includes(niveau)) sc+=2;
+    if(style==='tous'||v.styles.includes(style)) sc+=2;
+    sc+=Math.random()*.4;
+    return{v,sc};
+  }).sort((a,b)=>b.sc-a.sc)[0].v;
 }
 
-function goNext(step) {
-  show('step-' + (step + 1));
+function submit(){
+  document.getElementById('quiz').innerHTML=`<div class="loading-wrap"><div class="spinner"></div><div class="loading-text">On cherche ton vigneron idéal...</div></div>`;
+  setTimeout(()=>{
+    const r=recommend();
+    document.getElementById('quiz').innerHTML=`
+      <div class="result-label">Ta recommandation personnalisée</div>
+      <div class="result-domaine">${r.domaine}</div>
+      <div class="result-lieu">par ${r.nom} · ${r.village}, Marne</div>
+      <div class="result-badges">${r.badges.map(b=>`<span class="result-badge">${b}</span>`).join('')}</div>
+      <div class="result-cuvee-label">Cuvée suggérée</div>
+      <div class="result-cuvee">${r.cuvee}</div>
+      <div class="result-why">${r.pourquoi}</div>
+      <div class="result-conseil">${r.conseil}</div>
+      <button class="result-restart" onclick="restart()">Recommencer →</button>`;
+  },1800);
 }
 
-function goBack(step) {
-  show('step-' + (step - 1));
+function restart(){
+  Object.keys(ans).forEach(k=>delete ans[k]);
+  goTo(0);
 }
 
-async function submitQuiz() {
-  show('step-loading');
-
-  const prompt = `Tu es un expert en champagne de la Marne, spécialisé dans les vignerons indépendants et récoltants-manipulants.
-
-Profil de l'utilisateur :
-- Occasion : ${answers[0]}
-- Budget : ${answers[1]}
-- Goût : ${answers[2]}
-- Niveau : ${answers[3]}
-- Style producteur : ${answers[4]}
-
-Recommande UN vigneron indépendant réel de la Marne (pas une grande maison comme Moët, Veuve Clicquot, Mumm ou Piper). Réponds UNIQUEMENT en JSON valide, sans balises markdown, sans texte avant ou après :
-{
-  "nom": "Prénom Nom du vigneron",
-  "domaine": "Nom du domaine",
-  "village": "Village dans la Marne",
-  "cuvee": "Nom d'une cuvée recommandée",
-  "badges": ["badge1", "badge2", "badge3"],
-  "pourquoi": "2-3 phrases expliquant pourquoi ce vigneron correspond parfaitement à ce profil",
-  "conseil": "Un conseil pratique ou anecdote sur ce producteur"
-}`;
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        messages: [{ role: 'user', content: prompt }]
-      })
-    });
-    const data = await res.json();
-    const text = data.content.map(i => i.text || '').join('');
-    const clean = text.replace(/```json|```/g, '').trim();
-    const rec = JSON.parse(clean);
-    showResult(rec);
-  } catch(e) {
-    showError();
-  }
-}
-
-function showResult(r) {
-  const el = document.getElementById('step-result');
-  el.innerHTML = `
-    <div class="result-label">Ta recommandation personnalisée</div>
-    <div class="result-domaine">${r.domaine}</div>
-    <div class="result-lieu">par ${r.nom} · ${r.village}, Marne</div>
-    <div class="result-badges">${(r.badges||[]).map(b=>`<span class="result-badge">${b}</span>`).join('')}</div>
-    <div class="result-cuvee-label">Cuvée suggérée</div>
-    <div class="result-cuvee">${r.cuvee}</div>
-    <div class="result-why">${r.pourquoi}</div>
-    ${r.conseil ? `<div class="result-conseil">${r.conseil}</div>` : ''}
-    <button class="result-restart" onclick="restartQuiz()">Recommencer →</button>
-  `;
-  show('step-result');
-}
-
-function showError() {
-  const el = document.getElementById('step-result');
-  el.innerHTML = `<div style="text-align:center;color:rgba(245,243,236,.5);padding:2rem 0">Une erreur s'est produite.<br><button class="result-restart" style="margin-top:1rem" onclick="restartQuiz()">Réessayer</button></div>`;
-  show('step-result');
-}
-
-function restartQuiz() {
-  Object.keys(answers).forEach(k => delete answers[k]);
-  document.querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('selected'));
-  document.querySelectorAll('.quiz-next').forEach(b => b.disabled = true);
-  show('step-0');
-}
+render(0);
 </script>
 </body>
 </html>
